@@ -33,6 +33,7 @@ function UseEffectPage() {
         <pre className={styles.pre}>
           {[
             'const [imageUrl, setImageUrl] = useState("");',
+            'const [makeRequest, setMakeRequest] = useState(false);',
             '',
             'function handleClick() {',
             '    setMakeRequest(!makeRequest);',
