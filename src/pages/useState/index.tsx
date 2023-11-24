@@ -17,26 +17,32 @@ function UseStatePage() {
 
   return (
     <>
-      <section>
-        <h1>Contador utilizando 1 setState</h1>
+      <section className={styles.section}>
         <div>
-          <span>{count1by1}</span>
-          <button className={styles.button} onClick={handleChangeCount1by1}>
-            Contar
-          </button>
+          <h1>Contador utilizando 1 setState</h1>
+
+          <div>
+            <span>{count1by1}</span>
+            <button className={styles.button} onClick={handleChangeCount1by1}>
+              Contar
+            </button>
+          </div>
         </div>
-      </section>
-      <section>
-        <h1>Contador utilizando 3 setState's</h1>
-        <div>
-          <span>{count3by3}</span>
-          <button className={styles.button} onClick={handleChangeCount3by3}>
-            Contar
-          </button>
+
+        <div> 
+          <h1>Contador utilizando 3 setState's</h1>
+
+          <div>
+            <span>{count3by3}</span>
+            <button className={styles.button} onClick={handleChangeCount3by3}>
+              Contar
+            </button>
+          </div>
         </div>
+
       </section>
       <section className={styles.sectionCode}>
-        <h1>Codigo</h1>
+        <h1 className={styles.h1}>Codigo</h1>
         <pre className={styles.pre}>
           {[
             'const [count1by1, setCount1by1] = useState(0);',

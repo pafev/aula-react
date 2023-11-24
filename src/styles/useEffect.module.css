@@ -16,6 +16,10 @@
     margin: 1rem 0;
 }
 
+.h1 {
+    margin: 1rem;
+}
+
 .pre {
     width: 90vw;
     margin: 0 auto 1rem auto;

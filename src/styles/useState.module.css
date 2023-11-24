@@ -1,6 +1,17 @@
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0 1rem;
+}
+
 .button {
     padding: 0.5rem 0.75rem;
     margin: 0 1rem;
+}
+
+.h1 {
+    margin: 1rem;
 }
 
 .pre {
@@ -10,8 +21,4 @@
     padding: 1rem;
     border-radius: 0.5rem;
     overflow-x: scroll;
-}
-
-.sectionCode {
-    margin-top: 1rem;
 }

@@ -29,7 +29,7 @@ function UseEffectPage() {
         <button className={styles.button} onClick={handleClick}>Fazer nova requisição</button>
       </section>
       <section>
-        <h1>Codigo</h1>
+        <h1 className={styles.h1}>Codigo</h1>
         <pre className={styles.pre}>
           {[
             'const [imageUrl, setImageUrl] = useState("");',
