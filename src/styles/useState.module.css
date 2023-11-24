@@ -1,0 +1,17 @@
+.button {
+    padding: 0.5rem 0.75rem;
+    margin: 0 1rem;
+}
+
+.pre {
+    width: 90vw;
+    margin: 0 auto 1rem auto;
+    background-color: dimgrey;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: scroll;
+}
+
+.sectionCode {
+    margin-top: 1rem;
+}

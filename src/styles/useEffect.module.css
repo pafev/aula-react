@@ -1,0 +1,26 @@
+.img {
+    width: 20rem;
+    height: 20rem;
+    margin: 1rem 0;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+}
+
+.pre {
+    width: 90vw;
+    margin: 0 auto 1rem auto;
+    background-color: dimgrey;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: scroll;
+}
