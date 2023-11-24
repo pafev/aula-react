@@ -56,7 +56,7 @@ function UseStatePage() {
             '    <>',
             '      <div>',
             '        <span>{count1by1}</span>',
-            '        <button onClick={handleChangeCount3by3}>',
+            '        <button onClick={handleChangeCount1by1}>',
             '          Contar',
             '        </button>',
             '      </div>',

@@ -112,7 +112,7 @@ function Form() {
             '        <input onChange={handleChange} type="email" placeholder="Digite seu email" name="email"/>',
             '        <input onChange={handleChange} type="password" placeholder="Digite sua senha" name="password"/>',
             '        <input onChange={handleChange} type="text" placeholder="Digite seu endereço" name="address"/>',
-            '        <button className={styles.button} type="submit">Submeter</button>',
+            '        <button type="submit">Submeter</button>',
             "    </form>",
             ")",
           ].join("\n")}
