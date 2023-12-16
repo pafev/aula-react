@@ -1,5 +1,9 @@
 Primeiro, o que é API né? É uma interface para comunicação entre partes do nosso código, mais especificamente queremos comunicar/integrar o nosso banco de dados (prisma) com o nosso front (páginas do next)
 
+## em prisma/index.ts
+
+- aqui criei uma instância de cliente prisma para utilizarmos de forma global em toda aplicação, evitando criar múltiplos clientes prisma em trechos diferentes do código, evitando assim vazamento de memória
+
 ## em @/pages/api/
 
 - nessa parte é onde estamos construindo a api do lado do servidor, então criei um arquivo para criar interações com uma model do prisma (model Gender)
