@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Gender {
+  id          Int     @id @default(autoincrement())
+  name        String  @unique
+  description String?
+  animes      Anime[]
+}
+
+model Anime {
+  id       Int       @id @default(autoincrement())
+  name     String    @unique
+  gender   Gender    @relation(fields: [genderId], references: [id])
+  genderId Int
+  episodes Episode[]
+}
+
+model Episode {
+  id          Int     @id @default(autoincrement())
+  name        String
+  description String?
+  content     String?
+  anime       Anime   @relation(fields: [animeId], references: [id], onDelete: Cascade)
+  animeId     Int
+}
