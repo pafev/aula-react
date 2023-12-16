@@ -1,40 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Primeiro, o que é API né? É uma interface para comunicação entre partes do nosso código, mais especificamente queremos comunicar/integrar o nosso banco de dados (prisma) com o nosso front (páginas do next)
 
-## Getting Started
+## em @/pages/api/
 
-First, run the development server:
+- nessa parte é onde estamos construindo a api do lado do servidor, então criei um arquivo para criar interações com uma model do prisma (model Gender)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## em @/pages/api/gender/[slug].ts
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- esse arquivo representa uma rota da nossa API. Quando acessando a api do lado do servidor, vamos utilizar a URL "localhost:3000/api/gender/alguma-coisa", onde esse "alguma-coisa" vai para o slug
+- criei então de forma interativa maneiras de usar nossa api, pelo lado do servidor:
+  - "localhost:3000/api/gender/index" me retorna todos os gêneros do banco de dados
+  - "localhost:3000/api/gender/show" me retorna um gênero em específico do banco de dados
+  - "localhost:3000/api/gender/create" me permite criar um gênero no banco de dados
+  - etc.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## em @/clientApi
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- Agora aqui estamos finalizando a construção dessa interface de comunicação, criando funções para API no lado do cliente. O que significa? é só que basicamente criei funções, que vamos chamar no front mesmo (nas páginas), e essas funções vão executar uma chamada a uma das rotas da API que fizemos
+- A parte mais essencial e importante do por que fazemos essa separação é para tornar a nossa API type safe. Agora o que isso significa? é que queremos chamar funções no front onde já sabemos o que devemos passar de parâmetro e o que devemos esperar de retorno (queremos um auto-complete legalzinho, só apertar ctrl + espaço e ver o que tenho q passar de parâmetro para função)
+- E como que essa separação torna a api type safe e dá esse auto-complete? Quando for ver as funções nesse clientApi, perceba que tipei os parâmetros das funções e o seu retorno, e só isso já basta (vamos nos aproveitar da magia do TypeScript)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## em @/clientApi/gender/
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Aqui criei funções para utilizar as rotas da API referentes ao Gender e tipei elas para tornar a api type safe
+- Perceba que muitas vezes me aproveitei do tipo Gender que o próprio prisma cria pra mim, quando criei a model Gender e dei um "npx prisma db push"
 
-## Learn More
+## em @/clientApi/api.ts
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- esse arquivo cria uma instância do axios que vamos utilizar para ligar a api do lado do cliente com a api do lado do servidor. Então, em todas as funções do clientApi, eu utiilizo essa instância chamada "api" msm
